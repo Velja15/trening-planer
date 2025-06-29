@@ -1,18 +1,18 @@
 # 🏋️ Trening Planer
 
 **Trening Planer** je jednostavna desktop aplikacija za planiranje i praćenje fizičkih aktivnosti tokom nedelje. 
-Razvijena je u programskom jeziku **Java** uz korišćenje **SQLite** baze podataka. Ovaj projekat je realizovan kao zadatak iz predmeta *Uvod u softversko programiranje*.
+Razvijena je u programskom jeziku **Java** uz korišćenje **MySQL** baze podataka. Ovaj projekat je realizovan kao zadatak iz predmeta *Uvod u softversko programiranje*.
 
 ## ✨ Funkcionalnosti
 - Dodavanje novih vežbi po danima u nedelji
 - Brisanje, izmena i pregled postojećih vežbi
 - Filtriranje vežbi po tipu (kardio, snaga itd.)
 - Obeležavanje vežbi kao "urađene"
-- Čuvanje podataka u lokalnoj SQLite bazi
+- Čuvanje podataka u lokalnoj MySQL bazi
 
 ## 🔧 Tehnologije
-- Java (JDK 17+ preporučeno)
-- SQLite
+- Java (JDK 17+)
+- MySQL
 - Git & Trello za upravljanje projektom
 - JUnit za testiranje
 
