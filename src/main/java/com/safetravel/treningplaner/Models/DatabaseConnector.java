@@ -65,6 +65,15 @@ public class DatabaseConnector {
 
     public boolean insertKorisnik(Korisnik korisnik) {
         try{
+            if(korisnik.getUsername() == null || korisnik.getUsername().trim().isEmpty())
+            {
+                return false;
+            }
+            if(userExists(korisnik.getUsername()))
+            {
+                return false;
+            }
+
             String Username = korisnik.getUsername();
             String Password = korisnik.getPassword();
 
@@ -81,6 +90,23 @@ public class DatabaseConnector {
             }else{
                 return false;
             }
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+    private boolean userExists(String username){
+        String query = "SELECT COUNT(*) FROM KORISNIK WHERE username = ?";
+        try(PreparedStatement ps = conn.prepareStatement(query))
+        {
+             ps.setString(1,username);
+             ResultSet rs = ps.executeQuery();
+             if(rs.next()){
+                 int count = rs.getInt(1);
+                 return count > 0;
+             }
+
         }catch(SQLException e){
             e.printStackTrace();
         }
