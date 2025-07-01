@@ -1,7 +1,9 @@
-package Controllers;
+package com.safetravel.treningplaner.Controllers;
 
-import Models.DatabaseConnector;
-import Models.Korisnik;
+import com.safetravel.treningplaner.Models.DatabaseConnector;
+import com.safetravel.treningplaner.Models.Korisnik;
+import com.safetravel.treningplaner.Models.Model;
+
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -27,33 +29,33 @@ public class RegisterController implements Initializable {
 
     public void napraviKorisnika()
     {
-        Korisnik korisnik = new Korisnik(username_field.getText(),password_field.getText());
-
-
 
         if(username_field.getText().isEmpty() || password_field.getText().isEmpty() ) {
-            Boolean uspesno = databaseConnector.insertKorisnik(korisnik);
-            if(uspesno)
-            {
-
-                username_field.clear();
-                password_field.clear();
-                error_lbl.setText("");
-                Stage stage = (Stage) login_btn.getScene().getWindow();
-                Model.getInstance().getViewFactory().closeStage(stage);
-                Model.getInstance().getViewFactory().showLoginWindow();
-            }else{
-                error_lbl.setText("Korisnik nije uspesno dodat!");
-            }
-        }else {
             error_lbl.setText("Sva polja moraju biti popunjena");
+
+
+        }else {
+        Korisnik korisnik = new Korisnik(username_field.getText(),password_field.getText());
+        Boolean uspesno = databaseConnector.insertKorisnik(korisnik);
+        if(uspesno)
+        {
+
+            username_field.clear();
+            password_field.clear();
+            error_lbl.setText("");
+            Stage stage = (Stage) login_btn.getScene().getWindow();
+            Model.getInstance().getViewFactory().closeStage(stage);
+            Model.getInstance().getViewFactory().showLoginWindow();
+        }else {
+            error_lbl.setText("Korisnik nije uspesno dodat!");
         }
+    }
     }
 
     public void goBack(MouseEvent event) throws IOException {
         Stage stage = (Stage) back_btn.getScene().getWindow();
         Model.getInstance().getViewFactory().closeStage(stage);
-        Model.getInstance().getViewFactory().showStartWindow();
+        Model.getInstance().getViewFactory().showLoginWindow();
     }
 
     @Override

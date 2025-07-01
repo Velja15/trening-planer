@@ -1,14 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="Controllers.MainController"
-            prefHeight="400.0" prefWidth="600.0" >
-
+<AnchorPane prefHeight="722.0" prefWidth="1164.0" stylesheets="@../Styles/login.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.safetravel.treningplaner.Controllers.MainController">
+   <children>
+      <VBox layoutX="-3.0" prefHeight="722.0" prefWidth="203.0" styleClass="login_logo_container">
+         <children>
+            <FontAwesomeIconView fill="WHITE" glyphName="PLANE" size="35" />
+            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TreningPlaner" />
+         </children>
+      </VBox>
+      <ListView fx:id="listView" layoutX="217.0" layoutY="110.0" prefHeight="392.0" prefWidth="925.0" />
+      <Label layoutX="578.0" layoutY="509.0" prefHeight="35.0" prefWidth="203.0" text="Dodaj novu vezbu">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="626.0" layoutY="14.0" prefHeight="35.0" prefWidth="108.0" text="Izberi dan">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="daySelector" layoutX="605.0" layoutY="56.0" prefWidth="150.0" />
+      <ComboBox fx:id="zavrsenocombobox" layoutX="962.0" layoutY="594.0" prefWidth="150.0" />
+      <TextField fx:id="imefield" layoutX="217.0" layoutY="592.0" prefHeight="32.0" prefWidth="149.0" />
+      <ComboBox fx:id="tipvezbecombobox" layoutX="734.0" layoutY="595.0" prefWidth="150.0" />
+      <ComboBox fx:id="dancombobox" layoutX="476.0" layoutY="595.0" prefWidth="150.0" />
+      <Button fx:id="addButton" layoutX="583.0" layoutY="665.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="193.0" text="Button" />
+      <Label fx:id="error_lbl" layoutX="217.0" layoutY="669.0" prefHeight="25.0" prefWidth="149.0" />
+   </children>
 </AnchorPane>

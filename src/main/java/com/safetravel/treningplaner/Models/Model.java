@@ -1,8 +1,8 @@
-package Models;
+package com.safetravel.treningplaner.Models;
 
-import Controllers.LoginController;
+import com.safetravel.treningplaner.Controllers.LoginController;
+import com.safetravel.treningplaner.Views.ViewFactory;
 
-import javax.swing.text.ViewFactory;
 import java.sql.ResultSet;
 
 public class Model {

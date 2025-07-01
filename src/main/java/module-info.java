@@ -7,5 +7,9 @@ module com.safetravel.treningplaner {
 
 
     opens com.safetravel.treningplaner to javafx.fxml;
+    opens com.safetravel.treningplaner.Controllers to javafx.fxml;
+    exports com.safetravel.treningplaner.Controllers to javafx.fxml;
+    exports com.safetravel.treningplaner.Models;
+    exports com.safetravel.treningplaner.Views;
     exports com.safetravel.treningplaner;
 }

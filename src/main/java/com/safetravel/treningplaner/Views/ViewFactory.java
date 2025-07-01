@@ -1,7 +1,6 @@
-package Views;
+package com.safetravel.treningplaner.Views;
 
-import Controllers.MainController;
-import javafx.beans.property.SimpleObjectProperty;
+import com.safetravel.treningplaner.Controllers.MainController;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
@@ -27,10 +26,21 @@ public class ViewFactory {
         return treningplanerView;
     }
 
+    public void showLoginWindow()
+    {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Login.fxml"));
+        createStage(loader);
+    }
+
+    public void showRegisterWindow()
+    {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Register.fxml"));
+        createStage(loader);
+    }
+
     public void showMainWindow(){
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/FXML/Main.fxml"));
-        MainController mainController = new MainController();
-        loader.setController(mainController);
+
         createStage(loader);
     }
 
@@ -44,9 +54,13 @@ public class ViewFactory {
         }
         Stage stage = new Stage();
         stage.setScene(scene);
-        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/Images/munjica.png"))));
+        stage.getIcons().add(new Image(String.valueOf(getClass().getResource("/Images/flash.png"))));
         stage.setResizable(false);
         stage.setTitle("TreningPlaner");
         stage.show();
+    }
+
+    public void closeStage(Stage stage){
+        stage.close();
     }
 }

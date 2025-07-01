@@ -8,29 +8,21 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Controllers.LoginController">
-   <children>
-      <AnchorPane layoutX="-11.0" prefHeight="400.0" prefWidth="611.0" styleClass="login_container" stylesheets="@../../../../../SafeTravel/src/main/resources/Styles/login.css">
-         <children>
-            <VBox prefHeight="400.0" prefWidth="200.0" styleClass="login_logo_container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
-               <children>
-                  <FontAwesomeIconView fill="WHITE" glyphName="BOLT" size="35" text="" />
-                  <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TreningPlaner" />
-               </children>
-            </VBox>
-            <VBox layoutX="222.0" layoutY="14.0" prefHeight="231.0" prefWidth="350.0" styleClass="login_form_container" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="80.0">
-               <children>
-                  <Label fx:id="username_lbl" text="Username" />
-                  <TextField fx:id="username_field" styleClass="input_field" />
-                  <Label text="Password" />
-                  <TextField fx:id="password_field" styleClass="input_field" />
-                  <Button fx:id="login_btn" mnemonicParsing="false" text="Login" />
-                  <Label fx:id="error_lbl" styleClass="error_lbl" />
-               </children>
-            </VBox>
-            <VBox layoutX="-56.0" layoutY="3.0" prefHeight="42.0" prefWidth="158.0" styleClass="back_container" />
-         </children>
-      </AnchorPane>
-   </children>
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.safetravel.treningplaner.Controllers.LoginController">
+   <AnchorPane layoutX="-11.0" prefHeight="400.0" prefWidth="611.0" styleClass="login_container" stylesheets="@../Styles/login.css">
+      <VBox layoutX="9.0" prefHeight="400.0" prefWidth="191.0" styleClass="login_logo_container" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="9.0" AnchorPane.topAnchor="0.0">
+         <FontAwesomeIconView fx:id="iconView" fill="WHITE" glyphName="BOLT" size="35" text="" />
+         <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="TreningPlaner" />
+      </VBox>
+      <VBox layoutX="222.0" layoutY="14.0" prefHeight="272.0" prefWidth="350.0" styleClass="login_form_container" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="80.0">
+         <Label fx:id="username_lbl" text="Username" />
+         <TextField fx:id="username_field" styleClass="input_field" />
+         <Label text="Password" />
+         <TextField fx:id="password_field" styleClass="input_field" />
+         <Button fx:id="login_btn" mnemonicParsing="false" text="Login" />
+         <Button fx:id="register_btn" mnemonicParsing="false" onMouseClicked="#goBack" prefHeight="29.0" prefWidth="154.0" text="Nemas akaunt? Registruj se ovde" />
+         <Label fx:id="error_lbl" styleClass="error_lbl" />
+      </VBox>
+      <VBox layoutX="-56.0" layoutY="3.0" prefHeight="42.0" prefWidth="158.0" styleClass="back_container" />
+   </AnchorPane>
 </AnchorPane>
