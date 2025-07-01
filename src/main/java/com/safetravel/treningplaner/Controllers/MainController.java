@@ -31,6 +31,8 @@ public class MainController implements Initializable {
     private ComboBox<String> zavrsenocombobox;
     @FXML
     public Label error_lbl ;
+    @FXML
+    private Button obrisiButton;
 
 
     @Override
@@ -72,9 +74,29 @@ public class MainController implements Initializable {
         tipvezbecombobox.setValue("Kardio");
         dancombobox.setValue("Ponedeljak");
         error_lbl.setText("");
+        obrisiButton.setOnAction(e -> obrisiVezbu());
 
 
 
+    }
+
+    private void obrisiVezbu(){
+        String red = listView.getSelectionModel().getSelectedItem();
+        String dan = daySelector.getValue();
+
+        if(red == null || dan == null){
+            error_lbl.setText("Nijedna vezba nije selektovana");
+            return;
+        }
+        String[] delovi = red.split(" \\(");
+        String naziv = delovi[0];
+        boolean uspesno = DatabaseConnector.obrisiVezbu(naziv,dan);
+        if(uspesno){
+            error_lbl.setText("");
+            ucitajVezbeizBaze(daySelector.getSelectionModel().getSelectedItem());
+        }else{
+            error_lbl.setText("Vezba nije uspesno obrisana!");
+        }
     }
     private void unesiVezbu() {
         int dan = 0;
@@ -123,7 +145,7 @@ public class MainController implements Initializable {
                 Trening trening = new Trening(dan,imefield.getText(),tip,zavrsen);
                 Boolean uspesno = DatabaseConnector.insertTrening(trening);
                 if(uspesno){
-                    ucitajVezbeizBaze(daySelector.getSelectionModel().getSelectedItem());
+                    ucitajVezbeizBaze(dancombobox.getSelectionModel().getSelectedItem());
                 }
                 else{
                     error_lbl.setText("Dodavanje nije uspesno!");

@@ -13,6 +13,10 @@ public class Trening {
         this.tip_vezbe = tip_vezbe;
         this.zavrsen = zavrsen;
     }
+    public Trening(String ime)
+    {
+        this.ime = ime;
+    }
 
 
 

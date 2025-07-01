@@ -122,4 +122,29 @@ public class DatabaseConnector {
         }
         return resultSet;
     }
+
+    public static boolean obrisiVezbu(String naziv, String dan)
+    {
+        int dan_U_Int = switch (dan) {
+            case "Ponedeljak" -> 1;
+            case "Utorak" -> 2;
+            case "Sreda" -> 3;
+            case "Cetvrtak" -> 4;
+            case "Petak" -> 5;
+            case "Subota" -> 6;
+            case "Nedelja" -> 7;
+            default -> 1;
+        };
+
+        try{
+            PreparedStatement preparedStatement = conn.prepareStatement("DELETE FROM TRENING WHERE ime = ? AND dan = ?");
+            preparedStatement.setString(1,naziv);
+            preparedStatement.setInt(2,dan_U_Int);
+            preparedStatement.executeUpdate();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

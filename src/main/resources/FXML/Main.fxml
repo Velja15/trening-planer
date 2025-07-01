@@ -35,7 +35,8 @@
       <TextField fx:id="imefield" layoutX="217.0" layoutY="592.0" prefHeight="32.0" prefWidth="149.0" />
       <ComboBox fx:id="tipvezbecombobox" layoutX="734.0" layoutY="595.0" prefWidth="150.0" />
       <ComboBox fx:id="dancombobox" layoutX="476.0" layoutY="595.0" prefWidth="150.0" />
-      <Button fx:id="addButton" layoutX="583.0" layoutY="665.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="193.0" text="Button" />
+      <Button fx:id="addButton" layoutX="389.0" layoutY="666.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="193.0" text="Dodaj" />
       <Label fx:id="error_lbl" layoutX="217.0" layoutY="669.0" prefHeight="25.0" prefWidth="149.0" />
+      <Button fx:id="obrisiButton" layoutX="685.0" layoutY="669.0" mnemonicParsing="false" prefHeight="32.0" prefWidth="193.0" text="Obrisi" />
    </children>
 </AnchorPane>
